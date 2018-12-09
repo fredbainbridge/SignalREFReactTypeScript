@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/SignalRWebPackEFReactCore/bin/Debug/netcoreapp2.1/SignalRWebPack.dll",
+            "program": "${workspaceFolder}/bin/Debug/netcoreapp2.1/SignalRWebPack.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/SignalRWebPackEFReactCore",
+            "cwd": "${workspaceFolder}",
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart",
             "launchBrowser": {

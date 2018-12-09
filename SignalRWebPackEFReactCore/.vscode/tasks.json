@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/SignalRWebPackEFReactCore/SignalRWebPack.csproj"
+                "${workspaceFolder}/SignalRWebPack.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
