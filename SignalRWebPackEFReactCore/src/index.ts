@@ -6,6 +6,8 @@ import * as ReactDOM from "react-dom";
 const divMessages: HTMLDivElement = document.querySelector("#divMessages");
 const tbMessage: HTMLInputElement = document.querySelector("#tbMessage");
 const btnSend: HTMLButtonElement = document.querySelector("#btnSend");
+const btnNew: HTMLButtonElement = document.querySelector("#btnNew");
+
 const username = new Date().getTime();
 
 const connection = new signalR.HubConnectionBuilder()
@@ -31,8 +33,13 @@ tbMessage.addEventListener("keyup", (e: KeyboardEvent) => {
 });
 
 btnSend.addEventListener("click", send);
-
+btnNew.addEventListener("click", newMessage);
 function send() {
     connection.send("newMessage", username, tbMessage.value)
         .then(() => tbMessage.value = "");
+}
+function newMessage(){
+    var x = new XMLHttpRequest();
+    x.open('GET','/SomeDataController/New');
+    x.send();
 }

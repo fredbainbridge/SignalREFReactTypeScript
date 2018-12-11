@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using SignalRWebPack.Hubs;
 using SignalRWebPack.Data;
+using Microsoft.AspNetCore.SignalR;
 
 namespace SignalRWebPack
 {
@@ -33,7 +34,9 @@ namespace SignalRWebPack
                 services.AddDbContext<SignalRContext>(options =>
                         options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddSignalR();
+            services.AddTransient<Hub<IChatHub>, ChatHub>();
             services.AddMvcCore().AddJsonFormatters();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,6 +60,7 @@ namespace SignalRWebPack
             app.UseSignalR(options => {
                 options.MapHub<ChatHub>("/hub");
             });
+            app.UseMvcWithDefaultRoute();
         }
     }
 }
